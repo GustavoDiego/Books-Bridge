@@ -1,105 +1,100 @@
 <div class="grid">
   <div class="col-12">
-    <p-card
-    styleClass="shadow-3 m-5 text-indigo-800"
-    header="Lista de Livros"
-    >
-    <p-table
-      [value]="books"
-      [(selection)]="bookSelected"
-      [rows]="10"
-      [paginator]="true"
-      [responsive]="true"
-      [globalFilterFields]="['title', 'authors']"
-      [tableStyle]="{'min-width': '75rem'}"
-      [rowHover]="true"
-      [showCurrentPageReport]="true"
-      dataKey="id"
-      currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} livros"
-      >
-    <ng-template pTemplate="header">
-      <tr>
-        <th pSortableColumn="title">
-          <div class="flex justify-content-between align-items-center">
-            <div class="flex justify-content-between align-content-center">
-              Título
-            </div>
-            <div class="flex justify-content-between align-items-center">
-              <p-sortIcon
-              field="title"
-              >
-            </p-sortIcon>
-            <p-columnFilter
-            type="text"
-            field="title"
-            display="menu"
-            matchMode="contains"
-            [showMatchModes]="false"
-            [showOperator]="false"
-            [showAddButton]="false">
-          </p-columnFilter>
-            </div>
-          </div>
 
-        </th>
-        <th pSortableColumn="authors">
-          <div class="flex justify-content-between align-items-center">
-            <div class="flex justify-content-between align-content-center">
-              Autor
-            </div>
-            <div class="flex justify-content-between align-items-center">
-              <p-sortIcon
-              field="authors"
-              >
-            </p-sortIcon>
-            <p-columnFilter
-            type="text"
-            field="authors"
-            display="menu"
-            matchMode="contains"
-            [showMatchModes]="false"
-            [showOperator]="false"
-            [showAddButton]="false">
-          </p-columnFilter>
-            </div>
-          </div>
-
-        </th>
-        <th pSortableColumn="categories">
-          <div class="flex justify-content-between align-items-center">
-            <div class="flex justify-content-between align-content-center">
-              Gênero
-            </div>
-          </div>
-        </th>
-        <th pSortableColumn="averageRating">
-          <div class="flex justify-content-between align-items-center">
-            <div class="flex justify-content-between align-content-center">
-              ⭐ Média de avaliaçãos
-            </div>
-          </div>
-        </th>
+    <div class="shadow-3 m-5 text-indigo-800 bg-white rounded">
+     
+      <div class="text-2xl font-bold px-6 py-4 border-b border-gray-200">
+        Lista de Livros
+      </div>
 
 
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-book>
-      <tr>
-        <td [pTooltip]="book?.title"
-          tooltipPosition="top">{{book?.title}}</td>
-        <td [pTooltip]="book?.authors"
-        tooltipPosition="top">{{book?.authors}}</td>
-        <td [pTooltip]="book?.categories"
-        tooltipPosition="top">{{book?.categories}}</td>
-        <td>{{book?.averageRating}}</td>
-      </tr>
-    </ng-template>
+      <div class="p-6">
+        <p-table
+          [value]="books"
+          [(selection)]="bookSelected"
+          [rows]="10"
+          [paginator]="true"
+          [responsive]="true"
+          [globalFilterFields]="['title', 'authors']"
+          [tableStyle]="{'min-width': '75rem'}"
+          [rowHover]="true"
+          [showCurrentPageReport]="true"
+          dataKey="id"
+          currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} livros"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="title">
+                <div class="flex justify-content-between align-items-center">
+                  <div class="flex justify-content-between align-content-center">
+                    Título
+                  </div>
+                  <div class="flex justify-content-between align-items-center">
+                    <p-sortIcon field="title"></p-sortIcon>
+                    <p-columnFilter
+                      type="text"
+                      field="title"
+                      display="menu"
+                      matchMode="contains"
+                      [showMatchModes]="false"
+                      [showOperator]="false"
+                      [showAddButton]="false"
+                    ></p-columnFilter>
+                  </div>
+                </div>
+              </th>
+              <th pSortableColumn="authors">
+                <div class="flex justify-content-between align-items-center">
+                  <div class="flex justify-content-between align-content-center">
+                    Autor
+                  </div>
+                  <div class="flex justify-content-between align-items-center">
+                    <p-sortIcon field="authors"></p-sortIcon>
+                    <p-columnFilter
+                      type="text"
+                      field="authors"
+                      display="menu"
+                      matchMode="contains"
+                      [showMatchModes]="false"
+                      [showOperator]="false"
+                      [showAddButton]="false"
+                    ></p-columnFilter>
+                  </div>
+                </div>
+              </th>
+              <th pSortableColumn="categories">
+                <div class="flex justify-content-between align-items-center">
+                  <div class="flex justify-content-between align-content-center">
+                    Gênero
+                  </div>
+                </div>
+              </th>
+              <th pSortableColumn="averageRating">
+                <div class="flex justify-content-between align-items-center">
+                  <div class="flex justify-content-between align-content-center">
+                    ⭐ Média de avaliação
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </ng-template>
 
-    </p-table>
-
-    </p-card>
+          <ng-template pTemplate="body" let-book>
+            <tr>
+              <td [pTooltip]="book?.title" tooltipPosition="top">
+                {{ book?.title }}
+              </td>
+              <td [pTooltip]="book?.authors" tooltipPosition="top">
+                {{ book?.authors }}
+              </td>
+              <td [pTooltip]="book?.categories" tooltipPosition="top">
+                {{ book?.categories }}
+              </td>
+              <td>{{ book?.averageRating }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
