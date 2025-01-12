@@ -191,6 +191,10 @@ a.active-link {
   pointer-events: none;
   animation: ripple-keyframes 0.6s linear forwards;
 }
+.ripple-button {
+  border-color: white !important;
+  border: 2px solid white !important;
+}
 
 @keyframes ripple-keyframes {
   100% {
