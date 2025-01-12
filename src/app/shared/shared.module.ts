@@ -5,6 +5,7 @@ import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     ToolbarNavigationComponent
@@ -17,6 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ToolbarModule,
     CardModule,
     ButtonModule,
+    RouterModule
 
   ],
   exports:[ToolbarNavigationComponent]
