@@ -8,13 +8,20 @@ import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
-import { ChartModule } from 'primeng/chart';
+
+import { TableModule } from 'primeng/table';
 import { SidebarModule } from 'primeng/sidebar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BooksTablesComponent } from './components/books-tables/books-tables.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+import {TooltipModule} from 'primeng/tooltip';
 @NgModule({
   declarations: [
     BooksComponent,
+    BooksTablesComponent,
+
+
   ],
   imports: [
     CommonModule,
@@ -23,12 +30,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
 
+    HttpClientModule,
+
+
     SidebarModule,
     ButtonModule,
     ToolbarModule,
     CardModule,
     ToastModule,
-    ChartModule
-  ]
+
+    TableModule,
+    TooltipModule
+
+  ],
+  providers:[MessageService]
+
+  
+
 })
 export class BooksModule { }
