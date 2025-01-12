@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators'
 import { BookItem, GetAllBooksResponse } from '../models/model/books/getAllBooksResponse'
 import { SimplifiedBook } from '../models/model/books/simplifiedBook'
 import { Authors } from '../models/enums/authors/authors'
+import { BookDataTransferService } from '../shared/services/book-data-transfer.service'
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,16 @@ export class BooksService {
   private API_URL = environments.API_URL
   private API_KEY = environments.API_KEY
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private bookDTService: BookDataTransferService) {}
 
   getAllBooks(): Observable<SimplifiedBook[]> {
+    if (this.bookDTService.hasCache()) {
+      return this.bookDTService.getCache() as Observable<SimplifiedBook[]>
+    }
     const authorsRequests = Object.values(Authors).map(author =>
       this.http.get<GetAllBooksResponse>(
-        `${this.API_URL}?q=inauthor:"${author}"&printType=books&key=${this.API_KEY}`
+        `${this.API_URL}?q=inauthor:"${author}"&printType=books&maxResults=20&key=${this.API_KEY}`
       )
     )
 
