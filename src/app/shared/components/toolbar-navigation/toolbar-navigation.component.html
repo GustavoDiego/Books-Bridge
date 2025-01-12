@@ -1,24 +1,23 @@
-<p-toolbar styleClass="bg-indigo-800">
-  <div class="p-toolbar-group-start">
-    <p-button
-      icon="pi pi-book"
-      label="Livros"
-      routerLink="/books"
-      styleClass="bg-indigo-800 p-button-secondary"
-      routerLinkActive="exact_route"
-    ></p-button>
+<div class="flex items-center justify-between bg-indigo-800 p-4">
+  <!-- Grupo à Esquerda -->
+  <div class="flex items-center space-x-2">
+    <a
+      href="/books"
+      class="bg-indigo-800 text-white py-2 px-4 rounded flex items-center space-x-2 hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500"
+    >
+      <i class="pi pi-book"></i>
+      <span>Livros</span>
+    </a>
   </div>
 
-  <div class="p-toolbar-group-center">
-    <p-button
-      label="Estatisticas"
-      icon="pi pi-chart-bar"
-      routerLink="/statitics"
-      styleClass="bg-indigo-800 p-button-secondary"
-      routerLinkActive="exact_route"
-      class="mr-2"
-    ></p-button>
-
-
+  <!-- Grupo Central -->
+  <div class="flex items-center space-x-2">
+    <a
+      href="/statitics"
+      class="bg-indigo-800 text-white py-2 px-4 rounded flex items-center space-x-2 hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500"
+    >
+      <i class="pi pi-chart-bar"></i>
+      <span>Estatisticas</span>
+    </a>
   </div>
-</p-toolbar>
+</div>
