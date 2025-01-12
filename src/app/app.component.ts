@@ -1,10 +1,31 @@
+<<<<<<< Updated upstream
 import { Component } from '@angular/core';
+=======
+import { Component, OnInit } from '@angular/core';
+import { PrimeNGConfig } from 'primeng/api';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'BooksBridge';
+<<<<<<< Updated upstream
+=======
+  constructor(private primeNgConfig: PrimeNGConfig) {}
+  ngOnInit(): void {
+    this.primeNgConfig.ripple = true;
+    this.primeNgConfig
+    .setTranslation({
+      apply:'Aplicar',
+      clear:'Limpar'
+    })
+
+  }
+
+
+  
+>>>>>>> Stashed changes
 }
