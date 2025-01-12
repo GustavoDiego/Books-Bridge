@@ -5,7 +5,9 @@ import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     ToolbarNavigationComponent
@@ -14,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
     HttpClientModule,
+
 
     ToolbarModule,
     CardModule,

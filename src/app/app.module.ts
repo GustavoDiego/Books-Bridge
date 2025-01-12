@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { DialogService } from 'primeng/dynamicdialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
@@ -21,11 +21,9 @@ import { MessageService } from 'primeng/api';
     ToastModule,
 
   ],
-<<<<<<< Updated upstream
-  providers: [],
-=======
+
   providers: [DialogService, MessageService],
->>>>>>> Stashed changes
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

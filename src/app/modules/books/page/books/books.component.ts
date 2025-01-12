@@ -1,3 +1,4 @@
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Subject, takeUntil } from 'rxjs';
@@ -9,6 +10,7 @@ import { BooksService } from 'src/app/services/books.service';
   templateUrl: './books.component.html',
   styleUrls: []
 })
+
 export class BooksComponent implements OnInit, OnDestroy{
   private readonly destroy$ :  Subject<void> = new Subject()
   public BooksData: SimplifiedBook[] = [];
@@ -51,4 +53,4 @@ export class BooksComponent implements OnInit, OnDestroy{
   }
 
 
-}
+

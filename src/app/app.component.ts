@@ -1,9 +1,8 @@
-<<<<<<< Updated upstream
-import { Component } from '@angular/core';
-=======
+
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
->>>>>>> Stashed changes
+
+
 
 @Component({
   selector: 'app-root',
@@ -12,8 +11,7 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent implements OnInit{
   title = 'BooksBridge';
-<<<<<<< Updated upstream
-=======
+
   constructor(private primeNgConfig: PrimeNGConfig) {}
   ngOnInit(): void {
     this.primeNgConfig.ripple = true;
@@ -27,5 +25,3 @@ export class AppComponent implements OnInit{
 
 
   
->>>>>>> Stashed changes
-}

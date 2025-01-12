@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { ToolbarModule } from 'primeng/toolbar';
 import { CardModule } from 'primeng/card';
 import { ToastModule } from 'primeng/toast';
+
 import { TableModule } from 'primeng/table';
 import { SidebarModule } from 'primeng/sidebar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +20,8 @@ import {TooltipModule} from 'primeng/tooltip';
   declarations: [
     BooksComponent,
     BooksTablesComponent,
+
+
   ],
   imports: [
     CommonModule,
@@ -26,17 +29,23 @@ import {TooltipModule} from 'primeng/tooltip';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+
     HttpClientModule,
+
 
     SidebarModule,
     ButtonModule,
     ToolbarModule,
     CardModule,
     ToastModule,
+
     TableModule,
     TooltipModule
 
   ],
   providers:[MessageService]
+
+  ]
+
 })
 export class BooksModule { }
