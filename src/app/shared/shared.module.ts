@@ -6,7 +6,11 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { RouterModule } from '@angular/router';
+
+
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     ToolbarModule,
     CardModule,
     ButtonModule,
+    RouterModule
 
   ],
   exports:[ToolbarNavigationComponent]
