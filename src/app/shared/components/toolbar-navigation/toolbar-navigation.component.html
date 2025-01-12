@@ -1,23 +1,62 @@
-<div class="flex items-center justify-between bg-indigo-800 p-4">
-  <!-- Grupo à Esquerda -->
-  <div class="flex items-center space-x-2">
+<nav
+  class="relative
+         bg-indigo-800 rounded-b-md
+         mx-4 px-4 py-3
+         flex items-center justify-between"
+  aria-label="Menu Principal"
+>
+  
+  <div class="flex items-center space-x-4" role="menubar">
     <a
-      href="/books"
-      class="bg-indigo-800 text-white py-2 px-4 rounded flex items-center space-x-2 hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500"
+      routerLink="/books"
+      [routerLinkActiveOptions]="{ exact: true }"
+      routerLinkActive="active-link"
+      (click)="onRipple($event)"
+      title="Ir para Livros"
+      role="menuitem"
+
+      class="ripple-button relative flex items-center justify-center
+             rounded-md border border-indigo-300
+             bg-indigo-800 text-white px-5 py-2 text-base
+             transition-all duration-300
+             hover:bg-indigo-700 hover:border-white
+             focus:outline-none focus:ring-2 focus:ring-indigo-400
+             overflow-hidden"
     >
-      <i class="pi pi-book"></i>
+      <i class="pi pi-book mr-2"></i>
       <span>Livros</span>
     </a>
   </div>
 
-  <!-- Grupo Central -->
-  <div class="flex items-center space-x-2">
+
+  <h1
+    class="absolute
+           left-1/2 top-1/2
+           transform -translate-x-1/2 -translate-y-1/2
+           text-white text-xl font-bold"
+  >
+    BOOKSBRIDGE
+  </h1>
+
+
+  <div class="flex items-center space-x-4" role="menubar">
     <a
-      href="/statitics"
-      class="bg-indigo-800 text-white py-2 px-4 rounded flex items-center space-x-2 hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500"
+      routerLink="/statistics"
+      routerLinkActive="active-link"
+      (click)="onRipple($event)"
+      title="Ir para Estatísticas"
+      role="menuitem"
+
+      class="ripple-button relative flex items-center justify-center
+             rounded-md border border-indigo-300
+             bg-indigo-800 text-white px-5 py-2 text-base
+             transition-all duration-300
+             hover:bg-indigo-700 hover:border-white
+             focus:outline-none focus:ring-2 focus:ring-indigo-400
+             overflow-hidden"
     >
-      <i class="pi pi-chart-bar"></i>
-      <span>Estatisticas</span>
+      <i class="pi pi-chart-bar mr-2"></i>
+      <span>Estatísticas</span>
     </a>
   </div>
-</div>
+</nav>
