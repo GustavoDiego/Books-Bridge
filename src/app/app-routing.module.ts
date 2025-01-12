@@ -14,9 +14,16 @@ const routes: Routes = [
       import('./modules/books/books.module').then(
         (m)=> m.BooksModule
       )
+    },
+    {
+      path:'statistics',
+      loadChildren:()=>
+        import('./modules/statistics/statistics.module').then(
+          (m)=> m.StatisticsModule
+        )
     }
 
-  
+
 ];
 
 
