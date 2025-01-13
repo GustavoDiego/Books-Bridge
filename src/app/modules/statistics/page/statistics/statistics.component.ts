@@ -18,7 +18,7 @@ export class StatisticsComponent implements OnInit, OnDestroy{
 
   constructor(private booksServices: BooksService, private messageService: MessageService){}
 
-  getAllBooks() {
+  getAllBooks(): void {
       this.booksServices.getAllBooks()
       .pipe(takeUntil(this.destroy$))
       .subscribe(
