@@ -173,7 +173,10 @@ a[aria-current="page"] {
   background-color: #4c51bf;
 }
 
+.ripple-button {
 
+  border: 2px solid white !important;
+}
 
 a.active-link {
   border-color: white !important;
@@ -190,6 +193,10 @@ a.active-link {
   background: #fff;
   pointer-events: none;
   animation: ripple-keyframes 0.6s linear forwards;
+}
+.ripple-button {
+  border-color: white !important;
+  border: 2px solid white !important;
 }
 
 @keyframes ripple-keyframes {
