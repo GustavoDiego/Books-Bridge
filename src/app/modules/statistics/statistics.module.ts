@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { RouterModule } from '@angular/router';
 import { STATISTICS_ROUTES } from './statistics.routing';
-
+import {ChartModule} from 'primeng/chart'
 
 
 @NgModule({
@@ -20,6 +20,7 @@ import { STATISTICS_ROUTES } from './statistics.routing';
     SharedModule,
     RouterModule.forChild(STATISTICS_ROUTES),
     HttpClientModule,
+    ChartModule
   ],
   providers:[MessageService]
 })
