@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { environments } from 'src/environments/environments'
 import { Observable, forkJoin } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { map, tap } from 'rxjs/operators'
 import { BookItem, GetAllBooksResponse } from '../models/model/books/getAllBooksResponse'
 import { SimplifiedBook } from '../models/model/books/simplifiedBook'
 import { Authors } from '../models/enums/authors/authors'
@@ -41,7 +41,7 @@ export class BooksService {
             saleability: book.saleInfo.saleability,
             publishedDate: book.volumeInfo.publishedDate
           }))
-      )
+      ), tap(books => this.bookDTService.setCache(books))
     )
   }
 
