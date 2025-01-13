@@ -173,7 +173,10 @@ a[aria-current="page"] {
   background-color: #4c51bf;
 }
 
+.ripple-button {
 
+  border: 2px solid white !important;
+}
 
 a.active-link {
   border-color: white !important;
