@@ -37,8 +37,9 @@ export class BooksService {
             title: book.volumeInfo.title,
             authors: (book.volumeInfo.authors || ['Unknown']).join(', '),
             categories: (book.volumeInfo.categories || []).join(', '),
-            averageRating: book.volumeInfo.averageRating,
-            saleability: book.saleInfo.saleability
+            averageRating: (book.volumeInfo.averageRating || 'Não registrado') as string,
+            saleability: book.saleInfo.saleability,
+            publishedDate: book.volumeInfo.publishedDate
           }))
       )
     )
