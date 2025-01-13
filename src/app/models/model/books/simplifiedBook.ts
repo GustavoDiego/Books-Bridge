@@ -3,6 +3,7 @@ export interface SimplifiedBook {
   title: string
   authors: string
   categories?: string
-  averageRating?: number
+  averageRating?: string
   saleability: string
+  publishedDate?: string
 }
