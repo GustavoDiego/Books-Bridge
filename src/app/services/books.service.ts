@@ -24,7 +24,7 @@ export class BooksService {
     }
     const authorsRequests = Object.values(Authors).map(author =>
       this.http.get<GetAllBooksResponse>(
-        `${this.API_URL}?q=inauthor:"${author}"&printType=books&maxResults=20&key=${this.API_KEY}`
+        `${this.API_URL}?q=inauthor:"${author}"&filter=ebooks&maxResults=20&key=${this.API_KEY}`
       )
     )
 
