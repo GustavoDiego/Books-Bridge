@@ -13,8 +13,10 @@ export class ChartBarComponent implements OnInit, OnDestroy{
   constructor(private bookDTSersvice:BookDataTransferService){}
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.bookDTSersvice.getCache();
   }
+
+  
 
   ngOnDestroy(): void {
     this.destroy$.next();
