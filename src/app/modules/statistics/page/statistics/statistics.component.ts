@@ -13,7 +13,7 @@ export class StatisticsComponent implements OnInit, OnDestroy{
   private readonly destroy$ : Subject<void> = new Subject();
   public BooksData: SimplifiedBook[] = [];
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getAllBooks();
   }
 
   constructor(private booksServices: BooksService, private messageService: MessageService){}
