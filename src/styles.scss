@@ -197,6 +197,9 @@ a.active-link {
 .ripple-button {
   border-color: white !important;
   border: 2px solid white !important;
+  position: relative;
+  overflow: hidden;
+
 }
 
 @keyframes ripple-keyframes {
@@ -204,4 +207,79 @@ a.active-link {
     transform: scale(4);
     opacity: 0;
   }
+}
+
+nav {
+  position: relative;
+  background-color: #3137a5;
+  color: #fff;
+
+  transition: all 0.3s ease;
+
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px;
+      background: #fff;
+      transition: all 0.3s ease;
+
+      .hamburger span {
+        background-color: #fff;
+      }
+    }
+  }
+
+
+  .nav-left,
+  .nav-right,
+  .nav-title {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+}
+
+
+nav.collapsed {
+  position: fixed;
+  top: 0;
+  right: 20px;
+  width: 100%;
+  z-index: 50;
+  background-color: transparent;
+
+
+  padding: 0.5rem 1rem;
+
+
+  .nav-left,
+  .nav-right,
+  .nav-title {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+  .hamburger span {
+    background-color: #3137a5;
+  }
+}
+.nav-title {
+  color: #fff;
+  font-size: 1.25rem; 
 }
