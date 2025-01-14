@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: []
 })
 export class ToolbarNavigationComponent {
- constructor(private router:Router){}
+   constructor(private router:Router){}
+   isCollapsed = false;
+   private lastScrollTop = 0;
 
   onRipple(event: MouseEvent): void {
 
@@ -36,7 +38,34 @@ export class ToolbarNavigationComponent {
       existingRipple.remove();
     }
 
-    
+
     target.appendChild(ripple);
+  }
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+
+    if (currentScroll > this.lastScrollTop) {
+      this.isCollapsed = true;
+    } else {
+
+      if (currentScroll <= 0) {
+        this.isCollapsed = false;
+      }
+    }
+
+
+    this.lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  }
+
+
+  toggleMenu() {
+    this.isCollapsed = !this.isCollapsed;
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 }

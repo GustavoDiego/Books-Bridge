@@ -1,27 +1,36 @@
 <nav
-  class="relative
-         bg-indigo-800 rounded-b-md
-         mx-4 px-4 py-3
-         flex items-center justify-between"
+  class="
+    rounded-b-md
+    px-4 py-4
+    flex items-center justify-between
+    transition-all duration-300
+    z-50"
+  [ngClass]="{ 'collapsed': isCollapsed }"
   aria-label="Menu Principal"
 >
 
-  <div class="flex items-center space-x-4" role="menubar">
+
+  <button
+    class="hamburger"
+    type="button"
+    (click)="toggleMenu()"
+    aria-label="Menu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+
+  <div class="flex items-center space-x-4 nav-left" role="menubar">
     <a
       routerLink="/books"
       [routerLinkActiveOptions]="{ exact: true }"
       routerLinkActive="active-link"
+      class="ripple-button relative overflow-hidden rounded-md px-5 py-2 text-white"
       (click)="onRipple($event)"
       title="Ir para Livros"
       role="menuitem"
-
-      class="ripple-button relative flex items-center justify-center
-             rounded-md border border-indigo-300
-             bg-indigo-800 text-white px-5 py-2 text-base
-             transition-all duration-300
-             hover:bg-indigo-700 hover:border-white
-             focus:outline-none focus:ring-2 focus:ring-indigo-400
-             overflow-hidden"
     >
       <i class="pi pi-book mr-2"></i>
       <span>Livros</span>
@@ -29,31 +38,17 @@
   </div>
 
 
-  <h1
-    class="absolute
-           left-1/2 top-1/2
-           transform -translate-x-1/2 -translate-y-1/2
-           text-white text-xl font-bold"
-  >
-    BOOKSBRIDGE
-  </h1>
+  <h1 class="nav-title">BOOKSBRIDGE</h1>
 
-
-  <div class="flex items-center space-x-4" role="menubar">
+  
+  <div class="flex items-center space-x-4 nav-right" role="menubar">
     <a
       routerLink="/statistics"
       routerLinkActive="active-link"
+      class="ripple-button relative overflow-hidden rounded-md px-5 py-2 text-white"
       (click)="onRipple($event)"
       title="Ir para Estatísticas"
       role="menuitem"
-
-      class="ripple-button relative flex items-center justify-center
-             rounded-md border border-indigo-300
-             bg-indigo-800 text-white px-5 py-2 text-base
-             transition-all duration-300
-             hover:bg-indigo-700 hover:border-white
-             focus:outline-none focus:ring-2 focus:ring-indigo-400
-             overflow-hidden"
     >
       <i class="pi pi-chart-bar mr-2"></i>
       <span>Estatísticas</span>
