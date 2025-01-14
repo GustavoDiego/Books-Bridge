@@ -7,13 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { RouterModule } from '@angular/router';
 import { STATISTICS_ROUTES } from './statistics.routing';
-import {ChartModule} from 'primeng/chart'
+import {ChartModule} from 'primeng/chart';
+import { LineChartComponent } from './components/line-chart/line-chart.component'
 
 
 @NgModule({
   declarations: [
     ChartBarComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    LineChartComponent
   ],
   imports: [
     CommonModule,

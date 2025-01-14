@@ -29,7 +29,7 @@ export class ChartBarComponent implements OnInit, OnDestroy {
         next: (response) => {
           if (response) {
             this.booksList = response;
-            this.setProductsChartConfig();
+            this.setBooksChartConfig();
           }
         },
         error: (err) => {
@@ -44,7 +44,7 @@ export class ChartBarComponent implements OnInit, OnDestroy {
       });
   }
 
-  setProductsChartConfig(): void {
+  setBooksChartConfig(): void {
     if (this.booksList.length > 0) {
       const groupedBySaleability: { [key: string]: number } = this.booksList.reduce((acc, book) => {
         const saleability = book.saleability || 'Unknown';
