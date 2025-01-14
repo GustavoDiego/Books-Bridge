@@ -1,5 +1,5 @@
 export enum Authors{
-  NEIL_GAIMAN = 'Neil+Gaiman',
+  FRANZ_KAKFKA = 'Franz+Kafka',
   STEPHEN_KING = 'Stephen+King',
   MARGARET_ATWOOD = 'Margaret+Atwood',
   JK_ROWLING = 'J.K.+Rowling',
