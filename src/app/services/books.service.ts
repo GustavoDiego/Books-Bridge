@@ -6,7 +6,7 @@ import { map, tap } from 'rxjs/operators'
 import { BookItem, GetAllBooksResponse } from '../models/model/books/getAllBooksResponse'
 import { SimplifiedBook } from '../models/model/books/simplifiedBook'
 import { Authors } from '../models/enums/authors/authors'
-import { BookDataTransferService } from '../shared/services/book-data-transfer.service'
+import { BookDataTransferService } from '../shared/services/book-data-transfer/book-data-transfer.service'
 
 @Injectable({
   providedIn: 'root'
