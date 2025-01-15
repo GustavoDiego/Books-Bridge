@@ -1,3 +1,21 @@
 <app-toolbar-navigation></app-toolbar-navigation>
-<app-chart-bar></app-chart-bar>
-<app-line-chart></app-line-chart>
+<div class="relative w-14 h-8 cursor-pointer mt-2 ml-4" (click)="toggleTheme()">
+
+  <div class="absolute inset-0 rounded-full transition-colors duration-300"
+       [ngClass]="(isDarkMode$ | async) ? 'bg-gray-600' : 'bg-gray-300'">
+  </div>
+
+
+  <div class="absolute top-1 left-1 w-6 h-6 rounded-full flex items-center justify-center transform transition-transform duration-300"
+       [ngClass]="(isDarkMode$ | async) ?
+         'translate-x-6 bg-gray-800' :
+         'translate-x-0 bg-white'">
+    <i class="text-sm"
+       [ngClass]="(isDarkMode$ | async) ?
+         'pi pi-sun text-white' :
+         'pi pi-moon text-gray-800'">
+    </i>
+  </div>
+</div>
+<app-chart-bar  [dark]="isDarkMode$"></app-chart-bar>
+<app-line-chart  [dark]="isDarkMode$"></app-line-chart>

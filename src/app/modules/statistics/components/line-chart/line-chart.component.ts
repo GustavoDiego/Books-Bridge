@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ChartData, ChartOptions } from 'chart.js';
 import { MessageService } from 'primeng/api';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { SimplifiedBook } from 'src/app/models/model/books/simplifiedBook';
 import { CATEGORY_MAPPINGS } from 'src/app/models/model/categories/categoriesMapping';
 import { BooksService } from 'src/app/services/books.service';
@@ -17,9 +17,15 @@ export class LineChartComponent implements OnInit, OnDestroy {
   public booksList: SimplifiedBook[] = [];
   public booksChartDatas!: ChartData;
   public booksChartOptions!: ChartOptions;
+  @Input() public dark!: Observable<boolean>
+
+  public isDark: boolean = false;
 
   ngOnInit(): void {
     this.getAllBooks();
+    this.dark.subscribe(isDark => {
+      this.isDark = isDark;
+    });
   }
 
 

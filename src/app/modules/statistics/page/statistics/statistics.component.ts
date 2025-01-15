@@ -3,6 +3,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BooksService } from 'src/app/services/books.service';
 import { MessageService } from 'primeng/api';
 import { SimplifiedBook } from 'src/app/models/model/books/simplifiedBook';
+import { ThemeService } from 'src/app/shared/services/theme/theme.service';
 
 @Component({
   selector: 'app-statistics',
@@ -12,11 +13,12 @@ import { SimplifiedBook } from 'src/app/models/model/books/simplifiedBook';
 export class StatisticsComponent implements OnInit, OnDestroy{
   private readonly destroy$ : Subject<void> = new Subject();
   public BooksData: SimplifiedBook[] = [];
+  public isDarkMode$ = this.themeService.getCurrentTheme();
   ngOnInit(): void {
     this.getAllBooks();
   }
 
-  constructor(private booksServices: BooksService, private messageService: MessageService){}
+  constructor(private booksServices: BooksService, private messageService: MessageService, private themeService: ThemeService){}
 
   getAllBooks(): void {
       this.booksServices.getAllBooks()
@@ -45,6 +47,9 @@ export class StatisticsComponent implements OnInit, OnDestroy{
       )
     }
 
+  toggleTheme():void{
+      this.themeService.toggleTheme();
+  }
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
