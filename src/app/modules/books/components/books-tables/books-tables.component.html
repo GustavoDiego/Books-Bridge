@@ -1,7 +1,13 @@
 <div class="grid">
   <div class="col-12">
 
-    <div class="mx-5 my-5 p-8 bg-white shadow-2xl rounded-xl text-indigo-800">
+    <div class="mx-5 my-5 p-8 rounded-xl transition-colors duration-300"
+    [ngClass]="{
+      'bg-white text-indigo-800 shadow-2xl': !dark,
+
+    }"
+    [ngStyle]="dark ? {'background-color': '#071426', 'color': 'white', 'box-shadow': '0 10px 15px rgba(0, 0, 0, 0.5)'} : {}"
+    >
 
       <div class="text-2xl font-bold px-6 py-4 border-b border-gray-200">
         Lista de Livros
@@ -10,6 +16,7 @@
 
       <div class="p-6">
         <p-table
+
           [value]="books"
           [(selection)]="bookSelected"
           [rows]="10"

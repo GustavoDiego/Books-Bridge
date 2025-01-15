@@ -1,5 +1,6 @@
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, inject, OnDestroy, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Subject, takeUntil } from 'rxjs';
 import { BookItem } from 'src/app/models/model/books/getAllBooksResponse';
@@ -14,12 +15,13 @@ import { BooksService } from 'src/app/services/books.service';
 export class BooksComponent implements OnInit, OnDestroy{
   private readonly destroy$ :  Subject<void> = new Subject()
   public BooksData: SimplifiedBook[] = [];
+  public isDarkMode = false;
   ngOnInit(): void {
     this.getAllBooks()
 
   }
 
-  constructor (private booksServices: BooksService, private messageservice:MessageService){}
+  constructor (private booksServices: BooksService, private messageservice:MessageService, @Inject(DOCUMENT) private document:Document){}
   getAllBooks() {
     this.booksServices.getAllBooks()
     .pipe(takeUntil(this.destroy$))
@@ -45,6 +47,28 @@ export class BooksComponent implements OnInit, OnDestroy{
         }
       }
     )
+  }
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    this.applyTheme();
+  }
+
+
+  applyTheme() {
+
+    const body = document.body;
+    if (this.isDarkMode) {
+      body.classList.add('dark');
+      let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement
+      themeLink.href = 'lara-dark-blue.css'
+
+
+    } else {
+      body.classList.remove('dark');
+      let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement
+      themeLink.href = 'lara-light-blue.css'
+
+    }
   }
 
   ngOnDestroy(): void {

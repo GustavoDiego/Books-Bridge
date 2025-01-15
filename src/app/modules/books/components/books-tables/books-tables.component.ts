@@ -10,6 +10,7 @@ import { SimplifiedBook } from 'src/app/models/model/books/simplifiedBook';
 })
 export class BooksTablesComponent  {
   @Input() public books: SimplifiedBook[] =[]
+  @Input() public dark: boolean = false
 
   public bookSelected!: SimplifiedBook[]
   }
