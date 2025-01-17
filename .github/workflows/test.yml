@@ -25,8 +25,8 @@ jobs:
       run: npm install
     - name: Set Environment Variables
       run: |
-        sed -i "s|__API_URL__|${{ secrets.API_URL }}|g" src/environments/environment.prod.ts
-        sed -i "s|__API_KEY__|${{ secrets.API_KEY }}|g" src/environments/environment.prod.ts
+        sed -i "s|__API_URL__|${{ secrets.API_URL }}|g" src/environments/environment.ts
+        sed -i "s|__API_KEY__|${{ secrets.API_KEY }}|g" src/environments/environment.ts
 
     - name: Run Tests
       run: npm test -- --watch=false --code-coverage
