@@ -29,4 +29,4 @@ jobs:
         sed -i "s|__API_KEY__|${{ secrets.API_KEY }}|g" src/environments/environments.ts
 
     - name: Run Tests
-      run: ng test --browsers=ChromeHeadlessNoSandbox --watch=false --code-coverage
+      run: npm test --browsers=ChromeHeadlessNoSandbox --watch=false --code-coverage
