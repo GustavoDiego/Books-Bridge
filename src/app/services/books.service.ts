@@ -7,13 +7,14 @@ import { BookItem, GetAllBooksResponse } from '../models/model/books/getAllBooks
 import { SimplifiedBook } from '../models/model/books/simplifiedBook'
 import { Authors } from '../models/enums/authors/authors'
 import { BookDataTransferService } from '../shared/services/book-data-transfer/book-data-transfer.service'
+import { environments } from 'src/environments/environments'
 
 @Injectable({
   providedIn: 'root'
 })
 export class BooksService {
-  private API_URL = process.env['API_URL']
-  private API_KEY = process.env['API_KEY']
+  private API_URL = environments.API_URL;
+  private API_KEY = environments.API_KEY;
 
   constructor(private http: HttpClient,
               private bookDTService: BookDataTransferService) {}
