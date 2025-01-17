@@ -68,6 +68,7 @@ Para executar os testes unitários:
 
 # 📂 Estrutura do Projeto
 
+```
 src/
 ├── app/
 │   ├── models/
@@ -96,6 +97,7 @@ src/
 │           └── toolbar-navigation/
 ├── assets/
 └── environments/
+```
 
 # 🎨 Personalização de Tema
 
@@ -106,7 +108,6 @@ src/
 * **Persistência** : A escolha do usuário é armazenada no `localStorage`, mantendo a preferência em recargas da página.
 
 # 🤝 Contribuição
-
 
 Contribuições são bem-vindas! Siga estes passos para colaborar:
 
