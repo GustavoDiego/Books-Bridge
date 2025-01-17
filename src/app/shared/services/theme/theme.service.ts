@@ -15,7 +15,8 @@ export class ThemeService {
   public isDarkMode$ = this.darkModeSubject.asObservable();
 
   constructor(@Inject(DOCUMENT) private document: Document) {
-    this.initializeTheme();
+    
+    setTimeout(() => this.initializeTheme(), 0);
   }
 
   private initializeTheme(): void {
@@ -31,7 +32,8 @@ export class ThemeService {
   }
 
   public toggleTheme(): void {
-    this.darkModeSubject.next(!this.darkModeSubject.value);
+    const newTheme = !this.darkModeSubject.value;
+    this.darkModeSubject.next(newTheme);
     this.applyTheme();
   }
 
@@ -39,17 +41,15 @@ export class ThemeService {
     const isDark = this.darkModeSubject.value;
     const themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
 
-
-
     if (isDark) {
       this.document.body.classList.add(this.DARK_THEME_CLASS);
       themeLink.href = this.DARK_THEME_FILE;
+      localStorage.setItem(this.THEME_STORAGE_KEY, 'dark');
     } else {
       this.document.body.classList.remove(this.DARK_THEME_CLASS);
       themeLink.href = this.LIGHT_THEME_FILE;
+      localStorage.setItem(this.THEME_STORAGE_KEY, 'light');
     }
-
-    localStorage.setItem(this.THEME_STORAGE_KEY, isDark ? 'dark' : 'light');
   }
 
   public getCurrentTheme(): Observable<boolean> {
