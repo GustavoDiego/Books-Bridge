@@ -23,9 +23,11 @@ export class LineChartComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getAllBooks();
-    this.dark.subscribe(isDark => {
-      this.isDark = isDark;
-    });
+    if (this.dark) {
+      this.dark.pipe(takeUntil(this.destroy$)).subscribe(isDark => {
+        this.isDark = isDark;
+      });
+    }
   }
 
 
