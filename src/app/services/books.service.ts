@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { environments } from 'src/environments/environments'
+
 import { Observable, forkJoin } from 'rxjs'
 import { map, tap } from 'rxjs/operators'
 import { BookItem, GetAllBooksResponse } from '../models/model/books/getAllBooksResponse'
@@ -12,8 +12,8 @@ import { BookDataTransferService } from '../shared/services/book-data-transfer/b
   providedIn: 'root'
 })
 export class BooksService {
-  private API_URL = environments.API_URL
-  private API_KEY = environments.API_KEY
+  private API_URL = process.env['API_URL']
+  private API_KEY = process.env['API_KEY']
 
   constructor(private http: HttpClient,
               private bookDTService: BookDataTransferService) {}
