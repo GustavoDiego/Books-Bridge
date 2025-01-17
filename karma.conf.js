@@ -14,7 +14,7 @@ module.exports = function (config) {
         random: true,
         seed: '98765',
         stopOnFailure: false,
-        timeoutInterval: 10000 
+        timeoutInterval: 10000
       },
       clearContext: false
     },
@@ -29,7 +29,13 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['ChromeHeadless'],
-    singleRun: false,
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
+      }
+    },
+    singleRun: true,
     restartOnFileChange: true
   })
 }
