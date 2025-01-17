@@ -25,7 +25,8 @@ jobs:
       run: npm install
     - name: Set Environment Variables
       run: |
-        echo "API_URL=${{ secrets.API_URL }}" >> $GITHUB_ENV
-        echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+        sed -i "s|__API_URL__|${{ secrets.API_URL }}|g" src/environments/environments.ts
+        sed -i "s|__API_KEY__|${{ secrets.API_KEY }}|g" src/environments/environments.ts
+
     - name: Run Tests
-      run: npm test -- --watch=false --code-coverage
+      run: npx ng test --browsers=ChromeHeadlessNoSandbox --watch=false --code-coverage
